@@ -1,0 +1,28 @@
+package br.com.cod3r.calc.modelo;
+import java.util.List;
+import java.util.ArrayList;
+public class Memoria {
+
+	private static final Memoria instancia = new Memoria();
+	private final List<MemoriaObservador> observadores = new ArrayList<MemoriaObservador>();
+	private String textoAtual = "";
+	
+	public static Memoria getInstancia() {
+		return instancia;
+	}
+	
+	public void adicionarObservador(MemoriaObservador o) {
+		observadores.add(o);
+	}
+	
+	public String getTextoAtual() {
+		return textoAtual.isEmpty() ? "0" : textoAtual;
+	}
+	
+	public void processarComando(String texto) {
+		if(texto.equals("AC")) textoAtual = "";
+		else textoAtual += texto;
+		observadores.forEach(o -> o.valorAlterado(this.getTextoAtual()));
+		
+	}
+}

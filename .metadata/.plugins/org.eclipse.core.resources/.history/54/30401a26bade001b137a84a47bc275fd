@@ -1,0 +1,58 @@
+package br.com.cod3r.calc.visao;
+import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
+import javax.swing.JPanel;
+@SuppressWarnings("serial")
+public class Teclado extends JPanel{
+
+	private final Color COR_CINZA_ESCURO = new Color(68,69,68);
+	private final Color COR_CINZA_CLARO = new Color(97,100,99);
+	private final Color COR_LARANJA = new Color(242, 163, 60);
+	
+	public Teclado() {
+		this.setLayout(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.gridx = GridBagConstraints.RELATIVE;
+		
+		this.add(new Botao("AC", COR_CINZA_ESCURO), gbc);
+		this.add(new Botao("+/-", COR_CINZA_ESCURO), gbc);
+		this.add(new Botao("%", COR_CINZA_ESCURO), gbc);
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		this.add(new Botao("/", COR_LARANJA), gbc);
+		
+		gbc.gridwidth = 1;
+		this.add(new Botao("7", COR_CINZA_CLARO),gbc);
+		this.add(new Botao("8", COR_CINZA_CLARO),gbc);
+		this.add(new Botao("9", COR_CINZA_CLARO),gbc);
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		this.add(new Botao("*", COR_LARANJA), gbc);
+		
+		gbc.gridwidth = 1;
+		this.add(new Botao("4", COR_CINZA_CLARO),gbc);
+		this.add(new Botao("5", COR_CINZA_CLARO),gbc);
+		this.add(new Botao("6", COR_CINZA_CLARO),gbc);
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		this.add(new Botao("-", COR_LARANJA),gbc);
+		
+		gbc.gridwidth = 1;
+		this.add(new Botao("1", COR_CINZA_CLARO),gbc);
+		this.add(new Botao("2", COR_CINZA_CLARO),gbc);
+		this.add(new Botao("3", COR_CINZA_CLARO),gbc);
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		this.add(new Botao("+", COR_LARANJA), gbc);
+		
+		gbc.gridwidth = 2;
+		gbc.weightx = 1.0;
+//		gbc.fill = GridBagConstraints.HORIZONTAL;
+		this.add(new Botao("0", COR_CINZA_ESCURO),gbc);
+		gbc.fill = GridBagConstraints.NONE;
+		gbc.weightx = 0;
+		gbc.gridwidth = 1;
+		this.add(new Botao(",", COR_CINZA_ESCURO),gbc);
+		this.add(new Botao("=", COR_CINZA_ESCURO),gbc);
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		
+	}
+}

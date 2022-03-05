@@ -1,0 +1,54 @@
+package br.com.cod3r.calc.visao;
+import javax.swing.JFrame;
+import java.awt.GridBagLayout;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import java.awt.GridBagConstraints;
+public class Teste extends JFrame{
+
+	private final GridBagLayout grid;
+	private final JPanel painel;
+	private int num = 0;
+	
+	public Teste() {
+		super("Teste");
+		this.grid = new GridBagLayout();
+		this.painel = new JPanel();
+		organizarComponentes();
+		iniciarGUI();
+	}
+	
+	private void organizarComponentes() {
+		this.painel.setLayout(grid);
+		GridBagConstraints gridConstraints = new GridBagConstraints();
+		int i = 0;
+		for(i = 0; i < 13; i++) {
+			gridConstraints.fill = GridBagConstraints.BOTH;
+			if(i == 2 || i == 5 || i == 8 || i == 11) {
+				gridConstraints.gridwidth = GridBagConstraints.REMAINDER;
+				this.painel.add(new JButton(i + ""), gridConstraints);
+			}
+			else{
+				if(i == 12) {
+					gridConstraints.weightx = 1.0;
+					gridConstraints.gridwidth = GridBagConstraints.RELATIVE;
+					this.painel.add(new JButton(i + ""), gridConstraints);
+				}
+				gridConstraints.gridwidth = GridBagConstraints.RELATIVE;
+				this.painel.add(new JButton(i + ""), gridConstraints);
+			}
+		}
+	}
+	
+	private void iniciarGUI() {
+		this.setSize(1000, 800);
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
+		this.getContentPane().add(painel);
+		this.setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		new Teste();
+	}
+}

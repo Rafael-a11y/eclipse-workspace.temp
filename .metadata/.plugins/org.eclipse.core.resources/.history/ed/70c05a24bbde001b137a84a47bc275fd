@@ -1,0 +1,17 @@
+package br.com.cod3r.calc.visao;
+import javax.swing.JFrame;
+public class Teste extends JFrame{
+
+	public Teste() {
+		super("Teste");
+		iniciarGUI();
+	}
+	
+	public void iniciarGUI() {
+		this.setSize(232, 60);
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
+		this.pack();
+		this.setVisible(true);
+	}
+}

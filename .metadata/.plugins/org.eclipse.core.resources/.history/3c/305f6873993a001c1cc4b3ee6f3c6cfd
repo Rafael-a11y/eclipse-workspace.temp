@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class AlgoritmosOrdenacao {
+
+	public static void BubleSort(int vetor[]) {
+		int aux;
+		int tam = vetor.length;
+		for (int i=0; i < tam; i++) // Estamos percorrendo o arranjo por fora
+			for (int j=0; j < tam - 1 - i; j++) // percorrendo cada elemento da amostra e comparando com o seguinte
+				if (vetor[j] > vetor[j+1]) {
+					aux = vetor[j];
+					vetor[j] = vetor[j+1];
+					vetor[j+1] = aux;
+				}
+	}
+	public static void main(String[] args) {
+		Scanner entrada = new Scanner(System.in);
+		int resposta; 
+		System.out.print("Entre com o número de elementos do arranjo: ");
+		resposta = entrada.nextInt();
+		int vetor[] = new int[resposta];
+	}
+
+}
